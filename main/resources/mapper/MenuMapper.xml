@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.MenuMapper">
+
+    <select id="findMenusByPid" resultType="com.cykj.pojo.TMenu">
+        select * from  t_menu m , t_authority a  where m.id=a.mid and m.pid=#{pid} and a.role=#{roleId}
+    </select>
+
+    <select id="findKinderMenuByPid" resultType="com.cykj.pojo.TMenu">
+        select * from  t_menu m  where m.pid=#{pid}
+    </select>
+
+    <select id="findMenusSon" resultType="com.cykj.pojo.TMenu">
+       select * from  t_menu  m where  m.pid=#{pid}
+    </select>
+
+</mapper>

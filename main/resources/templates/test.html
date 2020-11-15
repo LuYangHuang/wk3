@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery-3.5.1.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+</head>
+<body>
+<div></div>
+<h1>测试iframe专用</h1>
+<button class="btn btn-primary" id="btn">新增预约</button>
+
+<!--预约详情-->
+<div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width:800px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">预约详情</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table style="width: 100%;" id="detailInfoTable">
+                    <tr>
+                        <td id="td1"></td>
+                        <td id="td2"></td>
+                        <td id="td3"></td>
+                    </tr>
+                    <tr>
+                        <td id="td4"></td>
+                        <td id="td5"></td>
+                        <td id="td6"></td>
+                    </tr>
+                </table>
+                <span style=" ;height: 38px;line-height: 38px;">问题描述：</span>
+                <textarea class="form-control" rows="3" id="questionTA"></textarea>
+                <span style=" ;height: 38px;line-height: 38px;">诊断答复：</span>
+                <textarea class="form-control" rows="3" id="responseTA"></textarea>
+                <span style=";height: 38px;line-height: 38px;">答复时间：</span>
+                <textarea class="form-control" rows="1" id="responseTime"></textarea>
+                <span style=" ;height: 38px;line-height: 38px;">评价内容：</span>
+                <textarea class="form-control" rows="3" id="reviewContent"></textarea>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="detailInf" aria-hidden="true">
+    <div class="modal-dialog" style="max-width:400px">
+        <div class="modal-content">
+            <select id="selectName" class="form-control">
+                <option value="">-请选择-</option>
+            </select>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    $(function () {
+
+
+        $('#btn').on('click', function () {
+            $('#detailInf').modal('show')
+        })
+
+
+    })
+
+    // if (navigator.geolocation){
+    //     navigator.geolocation.getCurrentPosition(function(position){
+    //         // $("div").html("latitude: " + position.coords.latitude + "<br>longtitude: " + position.coords.longitude);
+    //         // alert(position.coords.latitude + ", " + position.coords.longitude)
+    //     });
+    // }
+
+
+</script>
+</body>
+</html>

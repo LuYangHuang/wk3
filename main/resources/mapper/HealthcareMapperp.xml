@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.HealthMapper">
+
+
+    <select id="findBabyHealthCount" parameterType="java.util.Map" resultType="Integer">
+       select count(*) from t_healthcare
+
+    </select>
+
+    <select id="findBabyHealth" parameterType="java.util.Map" resultType="com.cykj.pojo.THealthcare">
+        select h.*,b.name babyStr from  t_healthcare h,t_baby b where h.babyId=b.id
+    </select>
+    <update id="updateBaby" parameterType="com.cykj.pojo.THealthcare">
+        update  t_healthcare set height=#{height},weigh=#{weigh},
+        eyesight=#{eyesight},temperature=#{temperature},situation=#{situation} where id=#{id}
+    </update>
+    <update id="updateBabyName" parameterType="com.cykj.pojo.THealthcare">
+        update  t_baby set name=#{babyStr}  where id=#{babyId}
+    </update>
+
+    <select id="situationSelect" resultType="com.cykj.pojo.TParam">
+        select * from t_param where type ="健康状态";
+    </select>
+
+    <select id="selectBaby" resultType="com.cykj.pojo.TBaby">
+        select b.*,a.name sexStr,p.tel parentTel from t_baby b,t_parent p,t_param a where a.value=b.sex and a.type="性别" and b.parentId=p.id and b.name=#{name}
+    </select>
+
+    <insert id="insertBaby" parameterType="com.cykj.pojo.THealthcare">
+        insert t_healthcare (babyId, time, height, weigh, eyesight,
+ temperature,situation,staffId, description) values (#{babyId},#{time},#{height},#{weigh},#{eyesight},#{temperature},#{situation},#{staffId},#{description})
+    </insert>
+
+    <select id="selectBabyInThealcare" resultType="com.cykj.pojo.THealthcare">
+        select * from t_healthcare where babyId=#{id}
+    </select>
+
+</mapper>

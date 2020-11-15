@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.cykj.mapper.UserMapper">
+    <select id="findUser" resultType="com.cykj.pojo.User">
+            select * from User where userName = #{userName} and userPwd = #{userPwd}
+    </select>
+
+    <select id="staffLogin" resultType="com.cykj.pojo.TStaff">
+     select * from  t_staff where account= #{account} and password = #{pwd}
+    </select>
+
+    <select id="kinderLogin" resultType="com.cykj.pojo.TKindergarten">
+     select * from  t_kindergarten where account= #{account} and password = #{pwd}
+    </select>
+
+
+</mapper>
